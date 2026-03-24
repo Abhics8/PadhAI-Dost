@@ -53,3 +53,4 @@ __pycache__/
 *.pyc
 python-backend/venv/
 python-backend/__pycache__/
+.env*.local
