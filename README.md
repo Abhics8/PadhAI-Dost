@@ -8,7 +8,7 @@
 
 > **Transform static PDFs into interactive learning experiences with AI-powered conversations, auto-generated flashcards, and intelligent context retrieval**
 
-[🚀 Live Demo](https://padhai-dost-v2.vercel.app) | [📖 Documentation](#) | [💼 Portfolio](https://ab0204.github.io/Portfolio/)
+[🚀 Live Demo](https://padhai-dost-v2.vercel.app) | [📖 Documentation](#) | [💼 Portfolio](https://abhics8.github.io/Portfolio)
 
 ![PadhAI-Dost Dashboard](https://via.placeholder.com/800x400/0f172a/1e293b?text=PadhAI+Dost+Dashboard)
 
@@ -612,7 +612,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 **Abhi Bhardwaj**
-- 🌐 Portfolio: [ab0204.github.io/Portfolio](https://ab0204.github.io/Portfolio/)
+- 🌐 Portfolio: [abhics8.github.io/Portfolio](https://abhics8.github.io/Portfolio)
 - 💼 LinkedIn: [linkedin.com/in/abhi-bhardwaj](https://www.linkedin.com/in/abhi-bhardwaj-23b0961a0/)
 - 📧 Email: abhibhardwaj427@gmail.com
 - 💻 GitHub: [@Abhics8](https://github.com/Abhics8)

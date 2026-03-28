@@ -55,7 +55,7 @@ export default function Home() {
               Start Learning <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              href="https://github.com/AB0204/PadhAI-Dost"
+              href="https://github.com/Abhics8/PadhAI-Dost"
               target="_blank"
               className="px-8 py-3 rounded-xl bg-white text-zinc-900 border border-zinc-200 font-semibold hover:bg-zinc-50 transition-all dark:bg-zinc-900 dark:border-zinc-800 dark:text-white dark:hover:bg-zinc-800"
             >
