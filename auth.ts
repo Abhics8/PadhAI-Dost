@@ -19,7 +19,7 @@ async function getUser(email: string) {
 export const { auth, signIn, signOut, handlers } = NextAuth({
     ...authConfig,
     adapter: PrismaAdapter(prisma),
-    session: { strategy: 'jwt' }, // Credentials provider requires JWT
+    session: { strategy: 'jwt' },
     providers: [
         Credentials({
             async authorize(credentials) {
@@ -32,7 +32,6 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
                     const user = await getUser(email);
                     if (!user) return null;
 
-                    // User exists but might have signed up with Google (no password)
                     if (!user.password) return null;
 
                     const passwordsMatch = await bcrypt.compare(password, user.password);

@@ -9,5 +9,3 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.12
-      - key: DEMO_MODE
-        value: "true"

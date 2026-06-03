@@ -5,7 +5,7 @@ export const authConfig = {
         signIn: '/login',
         newUser: '/signup',
     },
-    providers: [], // Configured in auth.ts
+    providers: [],
     callbacks: {
         authorized({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user;
@@ -14,7 +14,7 @@ export const authConfig = {
 
             if (isOnDashboard) {
                 if (isLoggedIn) return true;
-                return false; // Redirect unauthenticated users to login page
+                return false;
             } else if (isLoggedIn && isOnAuth) {
                 return Response.redirect(new URL('/chat', nextUrl));
             }

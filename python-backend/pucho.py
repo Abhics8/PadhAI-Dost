@@ -1,13 +1,18 @@
 from langchain_google_genai import GoogleGenerativeAI
 
 
+MAX_TEXT_LENGTH = 15000
+
+
 def pucho(text, question_type, num_questions, difficulty, api_key):
     """Generates practice questions based on the document."""
     llm = GoogleGenerativeAI(model="gemini-2.0-flash", api_key=api_key)
 
+    truncated = text[:MAX_TEXT_LENGTH]
+
     prompt = f"""Generate {num_questions} {question_type} questions based on the text below. Follow these guidelines:
 
-    Text: {text}
+    Text: {truncated}
 
     Requirements:
     1. Difficulty Parameters (Scale 1-10):

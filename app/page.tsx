@@ -1,106 +1,157 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/auth-components";
+import { ArrowRight, BookOpen, Brain, Trophy, Sparkles, Github, Star } from "lucide-react";
 import Link from "next/link";
-import { ArrowRight, Zap, CheckCircle, BarChart3 } from "lucide-react";
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen flex-col bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50">
+export default function HomePage() {
+    return (
+        <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+            {/* Hero Section */}
+            <section className="container mx-auto px-4 py-20">
+                <div className="text-center space-y-6 max-w-4xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        PadhAI-Dost
+                    </h1>
+                    <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
+                        Your AI-powered study companion. Upload. Ask. Learn.
+                    </p>
+                    <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+                        RAG-powered document chat, auto-generated flashcards, adaptive practice questions,
+                        and multi-level explanations — all from your own study materials.
+                    </p>
 
-      {/* Navigation */}
-      <header className="flex items-center justify-between px-6 py-4 border-b border-zinc-200 dark:border-zinc-800">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold">
-            PD
-          </div>
-          <span className="font-semibold text-xl tracking-tight">PadhAI Dost</span>
-        </div>
-        <nav className="hidden md:flex gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
-          <Link href="#features" className="hover:text-blue-600 transition-colors">Features</Link>
-          <Link href="#metrics" className="hover:text-blue-600 transition-colors">Impact</Link>
-          <Link href="/about" className="hover:text-blue-600 transition-colors">About</Link>
-        </nav>
-        <Link
-          href="/dashboard"
-          className="px-4 py-2 rounded-full bg-zinc-900 text-white text-sm font-medium hover:bg-zinc-800 transition-colors dark:bg-white dark:text-black dark:hover:bg-zinc-200"
-        >
-          Get Started
-        </Link>
-      </header>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+                        <Link href="/login">
+                            <Button className="text-lg px-8 h-12">
+                                Get Started
+                                <ArrowRight className="ml-2 h-5 w-5" />
+                            </Button>
+                        </Link>
+                        <a
+                            href="https://github.com/Abhics8/PadhAI-Dost"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button className="text-lg px-8 h-12 bg-white text-black border border-gray-300 hover:bg-gray-50">
+                                <Github className="mr-2 h-5 w-5" />
+                                View on GitHub
+                            </Button>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative pt-20 pb-32 px-6 flex flex-col items-center text-center">
-          <div className="absolute inset-0 -z-10 h-full w-full bg-white dark:bg-zinc-950 [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)] opacity-20"></div>
-
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold mb-6 dark:bg-blue-900/30 dark:text-blue-400">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            v2.0 Now Live
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight max-w-4xl mb-6 bg-gradient-to-br from-zinc-900 to-zinc-500 bg-clip-text text-transparent dark:from-white dark:to-zinc-500">
-            Your Intelligence, <br /> Augmented.
-          </h1>
-          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mb-10">
-            PadhAI Dost transforms your static PDFs into interactive conversations and smart flashcards using advanced RAG technology.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/dashboard"
-              className="px-8 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25"
-            >
-              Start Learning <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="https://github.com/Abhics8/PadhAI-Dost"
-              target="_blank"
-              className="px-8 py-3 rounded-xl bg-white text-zinc-900 border border-zinc-200 font-semibold hover:bg-zinc-50 transition-all dark:bg-zinc-900 dark:border-zinc-800 dark:text-white dark:hover:bg-zinc-800"
-            >
-              View GitHub
-            </Link>
-          </div>
-        </section>
-
-        {/* Impact Metrics Section */}
-        <section id="metrics" className="py-20 bg-zinc-50 dark:bg-zinc-900/50 border-y border-zinc-200 dark:border-zinc-800">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-12">
-              <div className="text-left max-w-lg">
-                <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
-                  <BarChart3 className="h-8 w-8 text-blue-600" />
-                  Real-World Impact
+            {/* Features Section */}
+            <section className="container mx-auto px-4 py-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                    Everything You Need to Learn
                 </h2>
-                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                  Engineered for performance. Our optimized RAG pipeline delivers precise answers faster than traditional search, empowering students to retain more information in less time.
-                </p>
-              </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-2xl">
-                <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                  <div className="text-4xl font-bold text-blue-600 mb-1">&lt;200ms</div>
-                  <div className="text-sm font-medium text-zinc-500">Response Latency</div>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <FeatureCard
+                        icon={<Brain className="h-8 w-8 text-blue-600" />}
+                        title="AI Tutoring"
+                        description="Chat with your documents and get answers grounded in your source material"
+                    />
+                    <FeatureCard
+                        icon={<BookOpen className="h-8 w-8 text-purple-600" />}
+                        title="Smart Practice"
+                        description="Auto-generated questions using Bloom's Taxonomy with adjustable difficulty"
+                    />
+                    <FeatureCard
+                        icon={<Sparkles className="h-8 w-8 text-amber-600" />}
+                        title="Auto Flashcards"
+                        description="Upload a PDF and get key-concept flashcards generated instantly"
+                    />
+                    <FeatureCard
+                        icon={<Trophy className="h-8 w-8 text-green-600" />}
+                        title="Multi-Level Explanations"
+                        description="Get beginner, intermediate, or advanced explanations of any topic"
+                    />
                 </div>
-                <div className="p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                  <div className="text-4xl font-bold text-green-500 mb-1">98%</div>
-                  <div className="text-sm font-medium text-zinc-500">Retrieval Accuracy</div>
-                </div>
-                <div className="col-span-2 md:col-span-1 p-6 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-sm">
-                  <div className="text-4xl font-bold text-orange-500 mb-1">10k+</div>
-                  <div className="text-sm font-medium text-zinc-500">Documents Processed</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+            </section>
 
-      </main>
+            {/* Why Free Section */}
+            <section className="container mx-auto px-4 py-16 bg-blue-50 dark:bg-gray-800 rounded-lg my-16">
+                <div className="max-w-3xl mx-auto text-center space-y-4">
+                    <h2 className="text-3xl md:text-4xl font-bold">Why Free?</h2>
+                    <p className="text-lg text-gray-600 dark:text-gray-300">
+                        Education should be accessible to everyone, regardless of financial background.
+                        PadhAI-Dost is built by students who struggled with expensive tools, and we&apos;re
+                        committed to keeping core features free forever.
+                    </p>
+                </div>
+            </section>
 
-      <footer className="py-8 bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 text-center text-sm text-zinc-500">
-        <p>© 2026 PadhAI Dost. Built with ❤️ by Abhi Bhardwaj.</p>
-      </footer>
-    </div>
-  );
+            {/* Tech Stack */}
+            <section className="container mx-auto px-4 py-16">
+                <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+                    <h2 className="text-2xl md:text-3xl font-bold text-center mb-6">
+                        Built With
+                    </h2>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
+                        <TechBadge label="Next.js 16" />
+                        <TechBadge label="TypeScript" />
+                        <TechBadge label="Tailwind CSS" />
+                        <TechBadge label="FastAPI" />
+                        <TechBadge label="LangChain" />
+                        <TechBadge label="Gemini 2.0" />
+                        <TechBadge label="FAISS" />
+                        <TechBadge label="Prisma + SQLite" />
+                    </div>
+                </div>
+            </section>
+
+            {/* Footer */}
+            <footer className="border-t bg-gray-50 dark:bg-gray-900 py-8">
+                <div className="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400">
+                    <p>Built by students, for students</p>
+                    <div className="flex justify-center gap-4 mt-4">
+                        <a
+                            href="https://github.com/Abhics8/PadhAI-Dost"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-700 dark:text-blue-400"
+                        >
+                            GitHub
+                        </a>
+                        <span>|</span>
+                        <a
+                            href="https://github.com/Abhics8/PadhAI-Dost/blob/main/README.md"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-700 dark:text-blue-400"
+                        >
+                            Documentation
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    );
+}
+
+function FeatureCard({
+    icon,
+    title,
+    description,
+}: {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+}) {
+    return (
+        <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+            <div className="mb-4">{icon}</div>
+            <h3 className="text-xl font-semibold mb-2">{title}</h3>
+            <p className="text-gray-600 dark:text-gray-400">{description}</p>
+        </div>
+    );
+}
+
+function TechBadge({ label }: { label: string }) {
+    return (
+        <div className="px-3 py-2 bg-gray-50 dark:bg-gray-700 rounded-lg font-medium text-gray-700 dark:text-gray-300">
+            {label}
+        </div>
+    );
 }

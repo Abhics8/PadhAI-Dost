@@ -1,9 +1,13 @@
 from langchain_google_genai import GoogleGenerativeAI
 
 
+MAX_TEXT_LENGTH = 15000
+
+
 def samjha_do(text, prior_knowledge, api_key):
     """Explains the document in detail based on prior knowledge."""
     llm = GoogleGenerativeAI(model="gemini-2.0-flash", api_key=api_key)
+    text = text[:MAX_TEXT_LENGTH]
 
     if prior_knowledge == "Beginner":
         prompt = f"""Create a complete educational summary of this text for someone completely new to the subject:
