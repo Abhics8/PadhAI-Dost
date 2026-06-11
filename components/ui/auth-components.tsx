@@ -6,9 +6,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantStyles: Record<string, string> = {
-    default: 'bg-black text-white shadow hover:bg-black/90',
-    outline: 'border border-zinc-200 bg-white text-zinc-900 hover:bg-zinc-50',
-    ghost: 'hover:bg-zinc-100 text-zinc-900',
+    default:
+        'bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-indigo-500/25 hover:from-indigo-400 hover:to-purple-400 active:scale-[0.98]',
+    outline:
+        'border border-edge-2 bg-surface text-ink hover:bg-surface-2 hover:border-brand/50',
+    ghost:
+        'text-ink-dim hover:bg-surface-2 hover:text-ink',
 };
 
 const sizeStyles: Record<string, string> = {
@@ -21,7 +24,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant = 'default', size = 'default', ...props }, ref) => {
         return (
             <button
-                className={`inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+                className={`inline-flex items-center justify-center rounded-lg text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60 disabled:pointer-events-none disabled:opacity-50 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
                 ref={ref}
                 {...props}
             />
@@ -35,7 +38,7 @@ const Input = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLI
         return (
             <input
                 type={type}
-                className={`flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+                className={`flex h-10 w-full rounded-lg border border-edge bg-canvas px-3 py-1 text-sm text-ink shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-ink-faint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 focus-visible:border-edge-2 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
                 ref={ref}
                 {...props}
             />

@@ -14,18 +14,18 @@ export function LoginForm() {
     return (
         <form action={formAction} className="space-y-4 w-full">
             <div>
-                <label className="block text-sm font-medium mb-1" htmlFor="email">Email</label>
+                <label className="block text-sm font-medium mb-1.5 text-ink-dim" htmlFor="email">Email</label>
                 <Input type="email" name="email" id="email" required placeholder="user@example.com" />
             </div>
             <div>
-                <label className="block text-sm font-medium mb-1" htmlFor="password">Password</label>
+                <label className="block text-sm font-medium mb-1.5 text-ink-dim" htmlFor="password">Password</label>
                 <Input type="password" name="password" id="password" required minLength={6} />
             </div>
             <Button type="submit" className="w-full" disabled={isPending}>
                 {isPending ? 'Logging in...' : 'Log in'}
             </Button>
             {errorMessage && (
-                <div className="text-red-500 text-sm mt-2">
+                <div className="text-red-400 text-sm mt-2">
                     {errorMessage}
                 </div>
             )}
@@ -81,23 +81,23 @@ export function SignUpForm() {
             <input type="hidden" name="name" value="User" />
             {/* Could add Name input field here */}
             <div>
-                <label className="block text-sm font-medium mb-1" htmlFor="email">Email</label>
+                <label className="block text-sm font-medium mb-1.5 text-ink-dim" htmlFor="email">Email</label>
                 <Input type="email" name="email" id="email" required placeholder="user@example.com" />
             </div>
             <div>
-                <label className="block text-sm font-medium mb-1" htmlFor="password">Password</label>
+                <label className="block text-sm font-medium mb-1.5 text-ink-dim" htmlFor="password">Password</label>
                 <Input type="password" name="password" id="password" required minLength={6} />
             </div>
             <Button type="submit" className="w-full" disabled={isPending}>
                 {isPending ? 'Creating Account...' : 'Sign Up'}
             </Button>
             {error && (
-                <div className="text-red-500 text-sm mt-2">
+                <div className="text-red-400 text-sm mt-2">
                     {error}
                 </div>
             )}
             {success && (
-                <div className="text-green-500 text-sm mt-2">
+                <div className="text-emerald-400 text-sm mt-2">
                     Account created! Redirecting to login...
                 </div>
             )}

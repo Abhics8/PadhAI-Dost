@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
+/* ── PadhAI-Dost design system ─────────────────────────────────────
+   Dark-first. One deliberate theme instead of a broken auto-switch:
+   the old prefers-color-scheme block turned body text white while
+   cards stayed hardcoded white → invisible UI. Never again.        */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b0f1a;
+  --foreground: #e7ecf6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* surfaces */
+  --color-canvas: #0b0f1a;      /* page background            */
+  --color-surface: #121829;     /* cards, panels              */
+  --color-surface-2: #1a2238;   /* elevated / hover surfaces  */
+
+  /* lines */
+  --color-edge: #243049;        /* default borders            */
+  --color-edge-2: #34436b;      /* hover / focus borders      */
+
+  /* text */
+  --color-ink: #e7ecf6;         /* primary text               */
+  --color-ink-dim: #9aa7c0;     /* secondary text             */
+  --color-ink-faint: #5d6b8a;   /* placeholders, hints        */
+
+  /* brand */
+  --color-brand: #6366f1;       /* indigo-500                 */
+  --color-brand-2: #a855f7;     /* purple-500                 */
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* slim, dark scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #34436b transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: #34436b;
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
 }

@@ -10,8 +10,8 @@ export default function ChatPage() {
     return (
         <div className="flex flex-col h-full max-w-5xl mx-auto">
             <div className="mb-6">
-                <h1 className="text-2xl font-bold mb-2">Study Session</h1>
-                <p className="text-gray-500 text-sm">Upload a document to start chatting with your AI tutor.</p>
+                <h1 className="text-2xl font-bold mb-1 text-ink">Study Session</h1>
+                <p className="text-ink-dim text-sm">Upload a document to start chatting with your AI tutor.</p>
             </div>
 
             <DocumentUploader />

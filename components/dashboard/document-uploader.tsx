@@ -36,7 +36,6 @@ export default function DocumentUploader() {
             if (!response.ok) throw new Error('Upload failed');
 
             setStatus('success');
-            // Refresh router or notify parent
             router.refresh();
         } catch (error) {
             console.error(error);
@@ -47,7 +46,7 @@ export default function DocumentUploader() {
     };
 
     return (
-        <div className="p-4 bg-white rounded-lg border shadow-sm mb-6">
+        <div className="p-4 bg-surface rounded-2xl border border-edge mb-6">
             <div className="flex items-center gap-4">
                 <div className="relative group">
                     <input
@@ -56,16 +55,16 @@ export default function DocumentUploader() {
                         accept=".pdf,.txt"
                         className="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10"
                     />
-                    <Button type="button" className="pointer-events-none relative">
+                    <Button type="button" variant="outline" className="pointer-events-none relative">
                         <Upload size={16} className="mr-2" />
                         Select Document
                     </Button>
                 </div>
 
                 {file && (
-                    <div className="flex items-center gap-2 text-sm text-gray-600 flex-1">
-                        <FileText size={16} />
-                        <span className="truncate max-w-[150px]">{file.name}</span>
+                    <div className="flex items-center gap-2 text-sm text-ink-dim flex-1">
+                        <FileText size={16} className="text-indigo-400" />
+                        <span className="truncate max-w-[200px]">{file.name}</span>
                     </div>
                 )}
 
@@ -73,7 +72,7 @@ export default function DocumentUploader() {
                     <Button
                         onClick={handleUpload}
                         disabled={isUploading}
-                        className={status === 'success' ? 'bg-green-600 hover:bg-green-700' : ''}
+                        className={status === 'success' ? '!from-emerald-600 !to-emerald-500' : ''}
                     >
                         {isUploading ? 'Uploading...' : status === 'success' ? 'Uploaded' : 'Start Processing'}
                     </Button>
@@ -81,13 +80,13 @@ export default function DocumentUploader() {
             </div>
 
             {status === 'success' && (
-                <div className="mt-2 text-xs text-green-600 flex items-center gap-1">
-                    <CheckCircle size={12} /> Document processed and ready for chat!
+                <div className="mt-3 text-xs text-emerald-400 flex items-center gap-1.5">
+                    <CheckCircle size={13} /> Document processed and ready for chat!
                 </div>
             )}
             {status === 'error' && (
-                <div className="mt-2 text-xs text-red-600 flex items-center gap-1">
-                    <AlertCircle size={12} /> Upload failed. Ensure the backend is running.
+                <div className="mt-3 text-xs text-red-400 flex items-center gap-1.5">
+                    <AlertCircle size={13} /> Upload failed. Ensure the backend is running.
                 </div>
             )}
         </div>
