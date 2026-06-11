@@ -224,6 +224,27 @@ def metrics():
     return collector.snapshot()
 
 
+@app.get("/diag/embedding")
+def diag_embedding():
+    """One-shot embedding self-test reporting the exact failure class/message.
+
+    Used to debug environment-specific API failures (key restrictions,
+    region blocks, library issues) that user-safe messages deliberately hide.
+    """
+    if DEMO_MODE:
+        return {"ok": False, "error_type": "DemoMode", "error": "No API key configured."}
+    assert pipeline is not None
+    try:
+        vector = pipeline.embeddings.embed_query("diagnostic ping")
+        return {"ok": True, "dimensions": len(vector)}
+    except Exception as exc:
+        return {
+            "ok": False,
+            "error_type": type(exc).__name__,
+            "error": str(exc)[:600],
+        }
+
+
 @app.get("/cache-stats")
 def cache_stats():
     return {"query_cache": query_cache.stats(), "loaded_sessions": len(_loaded)}
