@@ -72,8 +72,13 @@ def _embedding_failure_message(exc: Exception) -> str:
     if any(s in msg for s in ("429", "ResourceExhausted", "RESOURCE_EXHAUSTED")) or "quota" in msg.lower():
         return ("Document indexing failed due to API rate limits. "
                 "Please try again in a minute, or upload a shorter document.")
-    if any(s in msg for s in ("401", "403", "400", "API key", "API_KEY",
-                              "PERMISSION_DENIED", "UNAUTHENTICATED", "INVALID_ARGUMENT")):
+    if "FAILED_PRECONDITION" in msg or "location is not supported" in msg:
+        return ("Document indexing failed: the AI provider does not accept API calls "
+                "from this server's location (a free-tier restriction on datacenter IPs). "
+                "(Admin: enable billing on the Google AI project, or host the backend "
+                "in a supported region.)")
+    if any(s in msg for s in ("401", "403", "API key", "API_KEY",
+                              "PERMISSION_DENIED", "UNAUTHENTICATED")):
         return ("Document indexing failed: the AI service rejected the server's credentials. "
                 "(Admin: verify GEMINI_API_KEY on the backend.)")
     return "Document indexing failed unexpectedly. Please try again."
