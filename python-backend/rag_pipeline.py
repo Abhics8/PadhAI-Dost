@@ -66,6 +66,19 @@ def _tokenize(text: str) -> list[str]:
     return re.findall(r"[a-z0-9]+", text.lower())
 
 
+def _embedding_failure_message(exc: Exception) -> str:
+    """Map the real embedding failure to an accurate user-facing message."""
+    msg = str(exc)
+    if any(s in msg for s in ("429", "ResourceExhausted", "RESOURCE_EXHAUSTED")) or "quota" in msg.lower():
+        return ("Document indexing failed due to API rate limits. "
+                "Please try again in a minute, or upload a shorter document.")
+    if any(s in msg for s in ("401", "403", "400", "API key", "API_KEY",
+                              "PERMISSION_DENIED", "UNAUTHENTICATED", "INVALID_ARGUMENT")):
+        return ("Document indexing failed: the AI service rejected the server's credentials. "
+                "(Admin: verify GEMINI_API_KEY on the backend.)")
+    return "Document indexing failed unexpectedly. Please try again."
+
+
 def _retry_llm(fn, *, max_retries: int = 3, base_delay: float = 2.0):
     """Run an LLM/embedding call with exponential backoff on transient errors."""
     last_exc: Exception | None = None
@@ -152,7 +165,10 @@ class RAGPipeline:
                     base_delay=10.0,
                 )
             except Exception as exc:
-                raise EmbeddingError(f"Embedding batch {i // EMBED_BATCH_SIZE} failed: {exc}") from exc
+                raise EmbeddingError(
+                    f"Embedding batch {i // EMBED_BATCH_SIZE} failed: {exc}",
+                    user_message=_embedding_failure_message(exc),
+                ) from exc
             if db is None:
                 db = partial
             else:
