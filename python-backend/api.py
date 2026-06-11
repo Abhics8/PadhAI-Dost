@@ -201,7 +201,21 @@ class ClearSessionRequest(BaseModel):
 @app.get("/")
 def health_check():
     status = "Demo Mode" if DEMO_MODE else "Online"
-    return {"status": "ok", "message": f"PadhAI Dost Backend is Running ({status})"}
+    # Safe key fingerprint (sha256 prefix — reveals nothing about the key itself)
+    # so deploys can verify WHICH credential the server is actually holding.
+    fingerprint = None
+    if api_key:
+        import hashlib
+
+        fingerprint = hashlib.sha256(api_key.encode()).hexdigest()[:8]
+    return {
+        "status": "ok",
+        "message": f"PadhAI Dost Backend is Running ({status})",
+        "key_fingerprint": fingerprint,
+        "key_source": "GEMINI_API_KEY" if os.getenv("GEMINI_API_KEY") else (
+            "OPENAI_API_KEY" if os.getenv("OPENAI_API_KEY") else None
+        ),
+    }
 
 
 @app.get("/metrics")
