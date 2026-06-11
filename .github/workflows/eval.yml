@@ -1,0 +1,53 @@
+name: RAG Evaluation
+
+# Runs the RAG quality gate on every push/PR that touches the backend or eval set.
+# The dataset-structure check runs always (no API key needed). The full metric
+# run + threshold gate runs only when a GEMINI_API_KEY secret is configured.
+
+on:
+  push:
+    paths:
+      - 'python-backend/**'
+      - 'eval/**'
+      - '.github/workflows/eval.yml'
+  pull_request:
+    paths:
+      - 'python-backend/**'
+      - 'eval/**'
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    env:
+      # Mapped here so steps can gate on it via `if: env.GEMINI_API_KEY != ''`.
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r python-backend/requirements.txt
+
+      - name: Validate golden dataset (no API key required)
+        run: python eval/evaluate_rag.py --offline
+
+      - name: Run RAG evaluation with quality gate
+        if: ${{ env.GEMINI_API_KEY != '' }}
+        run: |
+          python eval/evaluate_rag.py \
+            --k 4 \
+            --fail-under-hitrate 0.85 \
+            --fail-under-faithfulness 0.90
+
+      - name: Upload results
+        if: ${{ always() && env.GEMINI_API_KEY != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: rag-eval-results
+          path: eval/results.csv
+          if-no-files-found: ignore

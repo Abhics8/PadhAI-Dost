@@ -1,0 +1,17 @@
+Photosynthesis: An Introduction for Students
+
+1. What Is Photosynthesis?
+
+Photosynthesis is the process by which green plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. The overall balanced equation for photosynthesis is: six molecules of carbon dioxide plus six molecules of water, in the presence of light energy, yield one molecule of glucose and six molecules of oxygen (6CO2 + 6H2O + light -> C6H12O6 + 6O2). The process takes place primarily in the leaves, inside specialized organelles called chloroplasts.
+
+Chloroplasts contain a green pigment called chlorophyll, which absorbs light most strongly in the blue (around 430 nm) and red (around 662 nm) regions of the visible spectrum. Chlorophyll reflects green light, which is why plants appear green to our eyes. There are two main forms: chlorophyll a, the primary pigment that participates directly in the light reactions, and chlorophyll b, an accessory pigment that broadens the range of light wavelengths the plant can use.
+
+2. The Two Stages of Photosynthesis
+
+Photosynthesis occurs in two linked stages: the light-dependent reactions and the light-independent reactions (also called the Calvin cycle).
+
+The light-dependent reactions take place in the thylakoid membranes of the chloroplast. When photons strike photosystem II, they excite electrons in chlorophyll molecules. These high-energy electrons travel down an electron transport chain, and the energy released is used to pump protons across the thylakoid membrane, creating a proton gradient. This gradient drives ATP synthase, an enzyme that produces ATP from ADP and inorganic phosphate, a process called photophosphorylation. Water molecules are split in a process called photolysis, which replaces the lost electrons in photosystem II and releases oxygen gas as a byproduct. The electrons eventually reach photosystem I, where they are re-energized by light and used to reduce NADP+ to NADPH.
+
+The products of the light reactions are therefore ATP, NADPH, and oxygen. The oxygen is released into the atmosphere, while the ATP and NADPH carry energy to the second stage.
+
+The Calvin cycle takes place in the stroma, the fluid-filled space surrounding the thylakoids. It does not require light directly, which is why it is called light-independent, although it depends on the ATP and NADPH produced by the light reactions. In the Calvin cycle, the enzyme RuBisCO (ribulose-1,5-bisphosphate carboxylase/oxygenase) attaches carbon dioxide from the air to a five-carbon sugar called RuBP (ribulose bisphosphate). This step is known as carbon fixation. The resulting six-carbon compound immediately splits into two molecules of 3-phosphoglycerate (3-PGA). Using energy from ATP and electrons from NADPH,

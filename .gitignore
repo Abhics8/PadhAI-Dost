@@ -54,3 +54,8 @@ __pycache__/
 python-backend/venv/
 python-backend/__pycache__/
 .env*.local
+
+# persisted FAISS indices and runtime session map (regenerated on demand)
+python-backend/indices/
+indices/
+eval/.eval_indices/

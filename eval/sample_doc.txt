@@ -1,0 +1,53 @@
+PHOTOSYNTHESIS: A STUDY GUIDE
+
+Page 1 — Overview
+Photosynthesis is the process by which green plants, algae, and some bacteria
+convert light energy into chemical energy stored in glucose. The overall balanced
+equation is: 6 CO2 + 6 H2O + light energy -> C6H12O6 + 6 O2. Photosynthesis takes
+place primarily in the leaves, inside organelles called chloroplasts. The green
+pigment chlorophyll, located in the thylakoid membranes, absorbs light most
+strongly in the blue (around 430 nm) and red (around 660 nm) regions of the
+spectrum and reflects green light, which is why leaves appear green.
+
+Page 2 — The Light-Dependent Reactions
+The light-dependent reactions occur in the thylakoid membranes of the chloroplast.
+Light is absorbed by photosystem II (P680) and photosystem I (P700). When light
+strikes photosystem II, water molecules are split in a process called photolysis,
+releasing oxygen as a byproduct, along with electrons and protons. The electrons
+travel down an electron transport chain, and their energy is used to pump protons
+into the thylakoid lumen, creating a proton gradient. ATP synthase uses this
+gradient to produce ATP through chemiosmosis. Photosystem I re-energizes the
+electrons, which ultimately reduce NADP+ to NADPH. The net products of the
+light-dependent reactions are ATP, NADPH, and oxygen.
+
+Page 3 — The Calvin Cycle
+The Calvin cycle, also called the light-independent reactions, takes place in the
+stroma of the chloroplast. It does not require light directly but depends on the
+ATP and NADPH produced by the light-dependent reactions. The cycle has three
+phases: carbon fixation, reduction, and regeneration. During carbon fixation, the
+enzyme RuBisCO attaches carbon dioxide to a five-carbon sugar called ribulose
+bisphosphate (RuBP). The resulting molecule is reduced using ATP and NADPH to form
+glyceraldehyde-3-phosphate (G3P), a three-carbon sugar. Some G3P is used to make
+glucose, while the rest regenerates RuBP so the cycle can continue. Three turns of
+the cycle are needed to produce one molecule of G3P available for glucose synthesis.
+
+Page 4 — Factors Affecting the Rate
+Three main environmental factors limit the rate of photosynthesis: light intensity,
+carbon dioxide concentration, and temperature. As light intensity increases, the
+rate increases until it plateaus at the light saturation point. Carbon dioxide is
+often the limiting factor in natural conditions; increasing CO2 concentration
+raises the rate up to a point. Temperature affects the enzymes involved: the rate
+roughly doubles for every 10 degrees Celsius increase until the optimum (around 25
+to 35 degrees Celsius for most plants), after which enzymes such as RuBisCO begin
+to denature and the rate falls sharply. The principle that the rate is constrained
+by whichever factor is in shortest supply is known as the law of limiting factors.
+
+Page 5 — C4 and CAM Plants
+Most plants use the C3 pathway described by the Calvin cycle, but some have evolved
+adaptations to reduce photorespiration in hot, dry climates. C4 plants, such as
+maize and sugarcane, fix carbon into a four-carbon compound in mesophyll cells
+before transferring it to bundle-sheath cells where the Calvin cycle occurs,
+concentrating CO2 around RuBisCO. CAM plants, such as cacti and pineapples, open
+their stomata at night to fix CO2 into organic acids, then release it for the
+Calvin cycle during the day while stomata stay closed to conserve water. Both
+adaptations improve water-use efficiency compared with C3 plants.
